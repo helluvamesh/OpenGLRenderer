@@ -9,9 +9,9 @@
 - Doubly liked list
 - Single cast delegate
 - Multi cast delegate
-- Random number generator
-- System clock
-- Date time
+- Random number generator wrapper
+- System clock wrapper
+- Date time wrapper
 - Timer
 - Number formatting
 - BitSet stored in integer types
