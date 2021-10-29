@@ -77,7 +77,7 @@ const FAxisBox& HStaticMeshNode::GetLocalBoundingBox() const
     {
         return this->Mesh->GetBoundingBox();
     }
-    return FAxisBox();
+    return FAxisBox::DEFAULT;
 }
 
 

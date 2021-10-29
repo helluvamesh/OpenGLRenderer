@@ -5,6 +5,8 @@ struct FBox : public FFloatStruct
 {
 public:
 
+	static const FBox DEFAULT;
+
 	DFixedArray<FVec3, 8> Points;  // points in no particular order
 
 	FBox();

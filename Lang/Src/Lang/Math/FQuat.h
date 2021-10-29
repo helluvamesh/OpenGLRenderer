@@ -3,6 +3,8 @@
 
 struct FQuat : public FFloatStruct
 {
+	static const FQuat DEFAULT;
+
 	float X, Y, Z, W;
 
 	FORCEINLINE FQuat();

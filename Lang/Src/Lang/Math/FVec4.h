@@ -3,6 +3,8 @@
 
 struct FVec4 : public FFloatStruct
 {
+	static const FVec4 DEFAULT;
+
 	float X, Y, Z, W;
 
 	FORCEINLINE FVec4();

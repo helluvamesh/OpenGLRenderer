@@ -1,5 +1,13 @@
 #include "pch.h"
 
+const FMat3 FMat3::DEFAULT;
+const FMat4 FMat4::DEFAULT;
+const FPlane FPlane::DEFAULT;
+const FQuat FQuat::DEFAULT;
+const FVec2 FVec2::DEFAULT;
+const FVec3 FVec3::DEFAULT;
+const FVec4 FVec4::DEFAULT;
+
 
 DString FAxisBox::ToString() const
 {

@@ -2,6 +2,9 @@
 #include "FSphere.h"
 
 
+const FSphere FSphere::DEFAULT;
+
+
 FSphere::FSphere() :
 	Radius(.0f)
 {

@@ -3,7 +3,8 @@
 
 struct FSphere : public FFloatStruct
 {
-public:
+	static const FSphere DEFAULT;
+
 	FVec3 Center;
 	float Radius;
 

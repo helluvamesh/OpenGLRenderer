@@ -2,6 +2,9 @@
 #include "FBox.h"
 
 
+const FBox FBox::DEFAULT;
+
+
 FBox::FBox()
 {
 }

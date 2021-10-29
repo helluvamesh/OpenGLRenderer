@@ -5,6 +5,8 @@
 struct FAxisBox : public FFloatStruct
 {
 public:
+	static const FAxisBox DEFAULT;
+
 	FVec3 Min;
 	FVec3 Max;
 

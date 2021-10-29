@@ -3,6 +3,8 @@
 
 struct FMat4 : public FFloatStruct
 {
+	static const FMat4 DEFAULT;
+
 	float Data[4][4];
 
 	FORCEINLINE FMat4();

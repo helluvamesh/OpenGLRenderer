@@ -3,7 +3,8 @@
 
 struct FPlane : public FFloatStruct
 {
-public:
+	static const FPlane DEFAULT;
+
 	float A;
 	float B;
 	float C;

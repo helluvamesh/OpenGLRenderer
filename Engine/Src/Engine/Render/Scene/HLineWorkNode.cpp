@@ -72,5 +72,5 @@ const FAxisBox& HLineWorkNode::GetLocalBoundingBox() const
     {
         return this->LineWork->GetBoundingBox();
     }
-    return FAxisBox();
+    return FAxisBox::DEFAULT;
 }

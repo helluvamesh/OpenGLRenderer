@@ -2,6 +2,9 @@
 #include "FAxisBox.h"
 
 
+const FAxisBox FAxisBox::DEFAULT;
+
+
 FAxisBox::FAxisBox()
 {
 }

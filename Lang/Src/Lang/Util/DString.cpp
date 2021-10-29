@@ -22,10 +22,12 @@ DString::FormatArgStorage::FormatArgStorage(const DString& Str)
 DString::FormatArgStorage& DString::FormatArgStorage::operator=(const DString::FormatArgStorage& Other)
 {
 	this->__CopyAssign__(Other);
+	return *this;
 }
 DString::FormatArgStorage& DString::FormatArgStorage::operator=(const DString& Other)
 {
 	this->__CopyAssign__(Other);
+	return *this;
 }
 
 
@@ -40,10 +42,12 @@ DString::FormatArgStorage::FormatArgStorage(DString&& Str)
 DString::FormatArgStorage& DString::FormatArgStorage::operator=(DString::FormatArgStorage&& Other) noexcept
 {
 	this->__MoveAssign__(std::move(Other));
+	return *this;
 }
 DString::FormatArgStorage& DString::FormatArgStorage::operator=(DString&& Str)
 {
 	this->__MoveAssign__(std::move(Str));
+	return *this;
 }
 
 

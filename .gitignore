@@ -1,1 +1,5 @@
 /gitignore
+/.vs
+/x64
+/Engine/x64
+/Lang/x64
