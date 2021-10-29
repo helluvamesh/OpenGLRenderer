@@ -14,6 +14,8 @@ layout(location = 1) out vec4 OutBrightColor;
 void main()
 {   
     vec3 color = texture(EnvMap, LocalPosition).rgb;
-    OutColor = vec4(pow(color, vec3(.455)), 1.0);
+    color = pow(color, vec3(.455));
+    color = min(color, vec3(1.0));
+    OutColor = vec4(color, 1.0);
     OutBrightColor = vec4(.0);
 }
