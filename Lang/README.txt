@@ -2,7 +2,7 @@
 ---- What's this? ----
 
 -- Utility --
-- Unicode string
+- Unicode string (using ICU)
 - Dynamic array
 - Hash map
 - Hash set
@@ -14,15 +14,13 @@
 - Date time
 - Timer
 - Number formatting
-- Bit set stored in integer types
+- BitSet stored in integer types
 
--- 3D Math (float, double) --
+-- 3D Math --
 - Vectors
 - Quaternion
 - Matrices
-- Euler
-- Box
-- Plane
+- Various shape classes
 - Float math wrapper to avoid NaNs
 - Double math wrapper to avoid NaNs
 
