@@ -1,2 +1,2 @@
 # OpenGLRenderer
-Realtime 3D rendering engine using OpenGL 4
+Realtime 3D Model Viewer using OpenGL 4
