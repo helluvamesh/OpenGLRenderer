@@ -1,0 +1,19 @@
+
+include this header before all other headers in the precompiled header of the dll and the consumer app
+
+
+------- header start ---------
+
+
+#pragma once
+
+
+// disable dll export warings
+// Lang static lib must also be present in the consumer app of this dll
+#pragma warning(push)
+#pragma warning(disable : 4251)
+#pragma warning(disable : 4275)
+// #pragma warning(pop) - re-enable
+
+
+------- header end --------

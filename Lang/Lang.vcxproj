@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{60db8f8c-f1af-4582-8c97-26e5342dd7b5}</ProjectGuid>
+    <RootNamespace>Lang</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>LANG_DEBUG_CONTAINERS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)Dependencies\ICU\win64\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>icuuc.lib;icudt.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\ICU\win64\lib64</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>LANG_DEBUG_CONTAINERS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)Dependencies\ICU\win64\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>icuuc.lib;icudt.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\ICU\win64\lib64</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>LANG_DEBUG_CONTAINERS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)Dependencies\ICU\win64\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>icuuc.lib;icudt.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\ICU\win64\lib64</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>LANG_DEBUG_CONTAINERS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)Dependencies\ICU\win64\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>icuuc.lib;icudt.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\ICU\win64\lib64</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="Include\Lang\Lang.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Src\Lang\DMath\DColor.h" />
+    <ClInclude Include="Src\Lang\Math\FBox.h" />
+    <ClInclude Include="Src\Lang\Math\FSphere.h" />
+    <ClInclude Include="Src\Lang\Math\FVec4.h" />
+    <ClInclude Include="Src\Lang\IO\Binary\SBase64.h" />
+    <ClInclude Include="Src\Lang\IO\Binary\SBinaryFile.h" />
+    <ClInclude Include="Src\Lang\IO\Binary\DByteConverter.h" />
+    <ClInclude Include="Src\Lang\IO\Binary\DByteReconverter.h" />
+    <ClInclude Include="Src\Lang\IO\Binary\SCoreObjectCopy.h" />
+    <ClInclude Include="Src\Lang\IO\Binary\SLenientObjectReconverter.h" />
+    <ClInclude Include="Src\Lang\IO\Binary\SLenientSerializer.h" />
+    <ClInclude Include="Src\Lang\IO\Binary\SObjectConverter.h" />
+    <ClInclude Include="Src\Lang\IO\Binary\SObjectTraveller.h" />
+    <ClInclude Include="Src\Lang\IO\Binary\SPrimitiveCopy.h" />
+    <ClInclude Include="Src\Lang\IO\Binary\SStrictObjectReconverter.h" />
+    <ClInclude Include="Src\Lang\IO\Binary\SStrictSerializer.h" />
+    <ClInclude Include="Src\Lang\IO\CSV\DCsvEncoder.h" />
+    <ClInclude Include="Src\Lang\IO\CSV\DCsvException.h" />
+    <ClInclude Include="Src\Lang\IO\CSV\DCsvParser.h" />
+    <ClInclude Include="Src\Lang\IO\CSV\DCsvSyntax.h" />
+    <ClInclude Include="Src\Lang\IO\CSV\SCsvUtils.h" />
+    <ClInclude Include="Src\Lang\IO\JSON\SJsonConvert.h" />
+    <ClInclude Include="Src\Lang\IO\JSON\DJsonEncoder.h" />
+    <ClInclude Include="Src\Lang\IO\JSON\DJsonException.h" />
+    <ClInclude Include="Src\Lang\IO\JSON\DJsonParser.h" />
+    <ClInclude Include="Src\Lang\IO\JSON\SJsonUtils.h" />
+    <ClInclude Include="Src\Lang\IO\SPath.h" />
+    <ClInclude Include="Src\Lang\IO\Text\STextFile.h" />
+    <ClInclude Include="Src\Lang\Math\FAxisBox.h" />
+    <ClInclude Include="Src\Lang\Math\DMath.h" />
+    <ClInclude Include="Src\Lang\Math\FMat3.h" />
+    <ClInclude Include="Src\Lang\Math\FMat4.h" />
+    <ClInclude Include="Src\Lang\Math\FMath.h" />
+    <ClInclude Include="Src\Lang\Math\FPlane.h" />
+    <ClInclude Include="Src\Lang\Math\FQuat.h" />
+    <ClInclude Include="Src\Lang\Math\FVec2.h" />
+    <ClInclude Include="Src\Lang\Math\FVec3.h" />
+    <ClInclude Include="Src\Lang\Util\Allocators.h" />
+    <ClInclude Include="Src\Lang\Util\DArrayView.h" />
+    <ClInclude Include="Src\Lang\Util\DDateTime.h" />
+    <ClInclude Include="Src\Lang\Util\SAscii.h" />
+    <ClInclude Include="Src\Lang\Util\SBitSet.h" />
+    <ClInclude Include="Src\Lang\Util\DClass.h" />
+    <ClInclude Include="Src\Lang\Util\CoreTypes.h" />
+    <ClInclude Include="Src\Lang\Util\DArray.h" />
+    <ClInclude Include="Src\Lang\Util\Delegates.h" />
+    <ClInclude Include="Src\Lang\Util\DString.h" />
+    <ClInclude Include="Src\Lang\Util\DString8.h" />
+    <ClInclude Include="Src\Lang\Util\DStrings.h" />
+    <ClInclude Include="Src\Lang\Util\DEnumClass.h" />
+    <ClInclude Include="Src\Lang\Util\Enumerators.h" />
+    <ClInclude Include="Src\Lang\Util\Exception\DConcurrentModificationException.h" />
+    <ClInclude Include="Src\Lang\Util\Exception\DIndexException.h" />
+    <ClInclude Include="Src\Lang\Util\Exception\DRuntimeException.h" />
+    <ClInclude Include="Src\Lang\Util\Fields.h" />
+    <ClInclude Include="Src\Lang\Math\SColor.h" />
+    <ClInclude Include="Src\Lang\Util\SFieldSelector.h" />
+    <ClInclude Include="Src\Lang\Util\DMap.h" />
+    <ClInclude Include="Src\Lang\Util\DSet.h" />
+    <ClInclude Include="Src\Lang\Util\IInterface.h" />
+    <ClInclude Include="Src\Lang\Util\DLinkedList.h" />
+    <ClInclude Include="Src\Lang\Util\SLog.h" />
+    <ClInclude Include="Src\Lang\Util\DNumberFormat.h" />
+    <ClInclude Include="Src\Lang\Util\HObject.h" />
+    <ClInclude Include="Src\Lang\Util\HRandom.h" />
+    <ClInclude Include="Src\Lang\Util\DFixedArray.h" />
+    <ClInclude Include="Src\Lang\Util\SmartPointers.h" />
+    <ClInclude Include="Src\Lang\Util\DStringBase.h" />
+    <ClInclude Include="Src\Lang\Util\DStruct.h" />
+    <ClInclude Include="Src\Lang\Util\TChar.h" />
+    <ClInclude Include="Src\Lang\Util\SClock.h" />
+    <ClInclude Include="Src\Lang\Util\HTimerManager.h" />
+    <ClInclude Include="Src\Lang\Util\SCounterUtil.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Lang.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Src\Lang\IO\Binary\SBase64.cpp" />
+    <ClCompile Include="Src\Lang\IO\Binary\SBinaryFile.cpp" />
+    <ClCompile Include="Src\Lang\IO\Binary\DByteConverter.cpp" />
+    <ClCompile Include="Src\Lang\IO\Binary\DByteReconverter.cpp" />
+    <ClCompile Include="Src\Lang\IO\Binary\SCoreObjectCopy.cpp" />
+    <ClCompile Include="Src\Lang\IO\Binary\SLenientObjectReconverter.cpp" />
+    <ClCompile Include="Src\Lang\IO\Binary\SLenientSerializer.cpp" />
+    <ClCompile Include="Src\Lang\IO\Binary\SObjectConverter.cpp" />
+    <ClCompile Include="Src\Lang\IO\Binary\SObjectTraveller.cpp" />
+    <ClCompile Include="Src\Lang\IO\Binary\SPrimitiveCopy.cpp" />
+    <ClCompile Include="Src\Lang\IO\Binary\SStrictObjectReconverter.cpp" />
+    <ClCompile Include="Src\Lang\IO\Binary\SStrictSerializer.cpp" />
+    <ClCompile Include="Src\Lang\IO\CSV\DCsvEncoder.cpp" />
+    <ClCompile Include="Src\Lang\IO\CSV\DCsvException.cpp" />
+    <ClCompile Include="Src\Lang\IO\CSV\DCsvParser.cpp" />
+    <ClCompile Include="Src\Lang\IO\CSV\DCsvSyntax.cpp" />
+    <ClCompile Include="Src\Lang\IO\CSV\SCsvUtils.cpp" />
+    <ClCompile Include="Src\Lang\IO\JSON\SJsonConvert.cpp" />
+    <ClCompile Include="Src\Lang\IO\JSON\DJsonEncoder.cpp" />
+    <ClCompile Include="Src\Lang\IO\JSON\DJsonException.cpp" />
+    <ClCompile Include="Src\Lang\IO\JSON\DJsonParser.cpp" />
+    <ClCompile Include="Src\Lang\IO\JSON\SJsonUtils.cpp" />
+    <ClCompile Include="Src\Lang\IO\SPath.cpp" />
+    <ClCompile Include="Src\Lang\IO\Text\STextFile.cpp" />
+    <ClCompile Include="Src\Lang\Math\DMath.cpp" />
+    <ClCompile Include="Src\Lang\Math\FAxisBox.cpp" />
+    <ClCompile Include="Src\Lang\Math\FBox.cpp" />
+    <ClCompile Include="Src\Lang\Math\FMath.cpp" />
+    <ClCompile Include="Src\Lang\Math\FMathToString.cpp" />
+    <ClCompile Include="Src\Lang\Math\FSphere.cpp" />
+    <ClCompile Include="Src\Lang\Util\DDateTime.cpp" />
+    <ClCompile Include="Src\Lang\Util\SAscii.cpp" />
+    <ClCompile Include="Src\Lang\Util\SBitSet.cpp" />
+    <ClCompile Include="Src\Lang\Util\DClass.cpp" />
+    <ClCompile Include="Src\Lang\Util\DString.cpp" />
+    <ClCompile Include="Src\Lang\Util\DString8.cpp" />
+    <ClCompile Include="Src\Lang\Util\DStrings.cpp" />
+    <ClCompile Include="Src\Lang\Util\DEnumClass.cpp" />
+    <ClCompile Include="Src\Lang\Util\Exception\DConcurrentModificationException.cpp" />
+    <ClCompile Include="Src\Lang\Util\Exception\DIndexException.cpp" />
+    <ClCompile Include="Src\Lang\Util\Exception\DRuntimeException.cpp" />
+    <ClCompile Include="Src\Lang\Math\SColor.cpp" />
+    <ClCompile Include="Src\Lang\Util\SLog.cpp" />
+    <ClCompile Include="Src\Lang\Util\DNumberFormat.cpp" />
+    <ClCompile Include="Src\Lang\Util\HObject.cpp" />
+    <ClCompile Include="Src\Lang\Util\HRandom.cpp" />
+    <ClCompile Include="Src\Lang\Util\DStruct.cpp" />
+    <ClCompile Include="Src\Lang\Util\TChar.cpp" />
+    <ClCompile Include="Src\Lang\Util\SClock.cpp" />
+    <ClCompile Include="Src\Lang\Util\HTimerManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="README.txt" />
+    <Text Include="ReflectionSystem.txt" />
+    <Text Include="UsingWithDLLs.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Src\Lang\DMath\DColor.inl" />
+    <None Include="Src\Lang\Math\FMat3.inl" />
+    <None Include="Src\Lang\Math\FMat4.inl" />
+    <None Include="Src\Lang\Math\FVec4.inl" />
+    <None Include="Src\Lang\Math\FPlane.inl" />
+    <None Include="Src\Lang\Math\FQuat.inl" />
+    <None Include="Src\Lang\Math\FVec2.inl" />
+    <None Include="Src\Lang\Math\FVec3.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

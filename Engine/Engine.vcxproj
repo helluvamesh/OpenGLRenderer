@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{e187d381-25e0-4d7c-ad89-9c0479fc48c8}</ProjectGuid>
+    <RootNamespace>Engine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>LANG_DEBUG_CONTAINERS;DEBUG_OPENGL;GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(TargetName)/pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(PojectDir)Src;$(SolutionDir)Lang/Include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Engine\Src</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)x64\Release;$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(SolutionDir)Dependencies\GLEW\lib\Release\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Lang.lib;glfw3.lib;glew32s.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>LANG_DEBUG_CONTAINERS;DEBUG_OPENGL;GLEW_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(TargetName)/pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(PojectDir)Src;$(SolutionDir)Lang/Include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Engine\Src</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)x64\Release;$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(SolutionDir)Dependencies\GLEW\lib\Release\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Lang.lib;glfw3.lib;glew32s.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>LANG_DEBUG_CONTAINERS;DEBUG_OPENGL;GLEW_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(TargetName)/pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(PojectDir)Src;$(SolutionDir)Lang/Include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Engine\Src</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)x64\Release;$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(SolutionDir)Dependencies\GLEW\lib\Release\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Lang.lib;glfw3.lib;glew32s.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>LANG_DEBUG_CONTAINERS;DEBUG_OPENGL;GLEW_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(TargetName)/pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(PojectDir)Src;$(SolutionDir)Lang/Include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Engine\Src</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)x64\Release;$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(SolutionDir)Dependencies\GLEW\lib\Release\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Lang.lib;glfw3.lib;glew32s.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\Engine\Asset\GLTF\SGltf.cpp" />
+    <ClCompile Include="Src\Engine\Asset\GLTF\SGltfImporter.cpp" />
+    <ClCompile Include="Src\Engine\Asset\HAsset.cpp" />
+    <ClCompile Include="Src\Engine\Asset\HAssetFactory.cpp" />
+    <ClCompile Include="Src\Engine\Asset\Wavefront\DWavefrontEncoder.cpp" />
+    <ClCompile Include="Src\Engine\Asset\Wavefront\DWavefrontException.cpp" />
+    <ClCompile Include="Src\Engine\Asset\Wavefront\DWavefrontParser.cpp" />
+    <ClCompile Include="Src\Engine\Dependencies\IMGUI\imgui.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\Dependencies\IMGUI\imgui_demo.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\Dependencies\IMGUI\imgui_draw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\Dependencies\IMGUI\imgui_impl_glfw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\Dependencies\IMGUI\imgui_impl_opengl3.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\Dependencies\IMGUI\imgui_tables.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\Dependencies\IMGUI\imgui_widgets.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\Dependencies\STB\stb_image.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\ModelViewer\HModelViewer.cpp" />
+    <ClCompile Include="Src\Engine\ModelViewer\HModelViewerApp.cpp" />
+    <ClCompile Include="Src\Engine\ModelViewer\HModelViewerUI.cpp" />
+    <ClCompile Include="Src\Engine\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\Render\Texture\DBitmapImage.cpp" />
+    <ClCompile Include="Src\Engine\Render\Texture\DBitmapImage16.cpp" />
+    <ClCompile Include="Src\Engine\Render\Texture\DBitmapImageHDR.cpp" />
+    <ClCompile Include="Src\Engine\Render\Texture\HFrameBuffer.cpp" />
+    <ClCompile Include="Src\Engine\Render\Texture\HFrameBuffer2D.cpp" />
+    <ClCompile Include="Src\Engine\Render\Texture\HFrameBufferDepth.cpp" />
+    <ClCompile Include="Src\Engine\Render\Texture\HRenderTarget2D.cpp" />
+    <ClCompile Include="Src\Engine\Render\Texture\HRenderTarget2DArray.cpp" />
+    <ClCompile Include="Src\Engine\Render\Texture\HRenderTarget2DMS.cpp" />
+    <ClCompile Include="Src\Engine\Render\Texture\HRenderTargetCube.cpp" />
+    <ClCompile Include="Src\Engine\Render\Texture\HTexture2D.cpp" />
+    <ClCompile Include="Src\Engine\Render\Texture\HTextureBase.cpp" />
+    <ClCompile Include="Src\Engine\Render\Texture\HTextureCube.cpp" />
+    <ClCompile Include="Src\Engine\Render\Texture\SImageCompressor.cpp" />
+    <ClCompile Include="Src\Engine\Render\Mesh\DLineWorkData.cpp" />
+    <ClCompile Include="Src\Engine\Render\Mesh\DStaticMeshAssetData.cpp" />
+    <ClCompile Include="Src\Engine\Render\Mesh\DStaticMeshData.cpp" />
+    <ClCompile Include="Src\Engine\Render\Mesh\HLineWork.cpp" />
+    <ClCompile Include="Src\Engine\Render\Mesh\HSceneQuad.cpp" />
+    <ClCompile Include="Src\Engine\Render\Mesh\HStaticMesh.cpp" />
+    <ClCompile Include="Src\Engine\Render\Mesh\ISurface.cpp" />
+    <ClCompile Include="Src\Engine\Render\Renderer\HRenderer.cpp" />
+    <ClCompile Include="Src\Engine\Render\RenderUtil\GLMath.cpp" />
+    <ClCompile Include="Src\Engine\Render\RenderUtil\GLUtil.cpp" />
+    <ClCompile Include="Src\Engine\Render\Scene\HAmbientLightNode.cpp" />
+    <ClCompile Include="Src\Engine\Render\Scene\HCameraNode.cpp" />
+    <ClCompile Include="Src\Engine\Render\Scene\HDirectionalLightNode.cpp" />
+    <ClCompile Include="Src\Engine\Render\Scene\HLightNode.cpp" />
+    <ClCompile Include="Src\Engine\Render\Scene\HLineWorkNode.cpp" />
+    <ClCompile Include="Src\Engine\Render\Scene\HPointLightNode.cpp" />
+    <ClCompile Include="Src\Engine\Render\Scene\HScene.cpp" />
+    <ClCompile Include="Src\Engine\Render\Scene\HSceneNode.cpp" />
+    <ClCompile Include="Src\Engine\Render\Scene\HSpotLightNode.cpp" />
+    <ClCompile Include="Src\Engine\Render\Scene\HStaticMeshNode.cpp" />
+    <ClCompile Include="Src\Engine\Render\Scene\HSurfaceNode.cpp" />
+    <ClCompile Include="Src\Engine\Render\Shader\HEqMapConvert.cpp" />
+    <ClCompile Include="Src\Engine\Render\Shader\HIBLConvert.cpp" />
+    <ClCompile Include="Src\Engine\Render\Shader\HPostProcessMaterial.cpp" />
+    <ClCompile Include="Src\Engine\Render\Shader\HPostProcessShader.cpp" />
+    <ClCompile Include="Src\Engine\Render\Shader\HShaderBase.cpp" />
+    <ClCompile Include="Src\Engine\Render\Shader\HShadowDepthShader.cpp" />
+    <ClCompile Include="Src\Engine\Render\Shader\HSurfaceMaterial.cpp" />
+    <ClCompile Include="Src\Engine\Render\Shader\HSurfaceShader.cpp" />
+    <ClCompile Include="Src\Engine\UI\HWindow3D.cpp" />
+    <ClCompile Include="Src\Engine\UI\OS\SWindowsOSUtil.cpp" />
+    <ClCompile Include="Src\Engine\UI\SNativeMessage.cpp" />
+    <ClCompile Include="Src\Engine\Util\SEngine.cpp" />
+    <ClCompile Include="Src\Engine\Util\SPrimitiveConvert.cpp" />
+    <ClCompile Include="Src\Engine\Util\UtilTypes.cpp" />
+    <ClCompile Include="Src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Src\Engine\Asset\GLTF\SGltf.h" />
+    <ClInclude Include="Src\Engine\Asset\GLTF\SGltfImporter.h" />
+    <ClInclude Include="Src\Engine\Asset\HAsset.h" />
+    <ClInclude Include="Src\Engine\Asset\HAssetFactory.h" />
+    <ClInclude Include="Src\Engine\Asset\Wavefront\DWavefrontEncoder.h" />
+    <ClInclude Include="Src\Engine\Asset\Wavefront\DWavefrontException.h" />
+    <ClInclude Include="Src\Engine\Asset\Wavefront\DWavefrontParser.h" />
+    <ClInclude Include="Src\Engine\Dependencies\IMGUI\imconfig.h" />
+    <ClInclude Include="Src\Engine\Dependencies\IMGUI\imgui.h" />
+    <ClInclude Include="Src\Engine\Dependencies\IMGUI\ImGuiAll.h" />
+    <ClInclude Include="Src\Engine\Dependencies\IMGUI\imgui_impl_glfw.h" />
+    <ClInclude Include="Src\Engine\Dependencies\IMGUI\imgui_impl_opengl3.h" />
+    <ClInclude Include="Src\Engine\Dependencies\IMGUI\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="Src\Engine\Dependencies\IMGUI\imgui_internal.h" />
+    <ClInclude Include="Src\Engine\Dependencies\IMGUI\imstb_rectpack.h" />
+    <ClInclude Include="Src\Engine\Dependencies\IMGUI\imstb_textedit.h" />
+    <ClInclude Include="Src\Engine\Dependencies\IMGUI\imstb_truetype.h" />
+    <ClInclude Include="Src\Engine\Dependencies\STB\stb_dxt.h" />
+    <ClInclude Include="Src\Engine\Dependencies\STB\stb_image.h" />
+    <ClInclude Include="Src\Engine\Dependencies\STB\stb_image_resize.h" />
+    <ClInclude Include="Src\Engine\Dependencies\STB\stb_image_write.h" />
+    <ClInclude Include="Src\Engine\ModelViewer\HModelViewer.h" />
+    <ClInclude Include="Src\Engine\ModelViewer\HModelViewerApp.h" />
+    <ClInclude Include="Src\Engine\ModelViewer\HModelViewerUI.h" />
+    <ClInclude Include="Src\Engine\pch.h" />
+    <ClInclude Include="Src\Engine\Render\Texture\DBitmapImage.h" />
+    <ClInclude Include="Src\Engine\Render\Texture\DBitmapImage16.h" />
+    <ClInclude Include="Src\Engine\Render\Texture\DBitmapImageHDR.h" />
+    <ClInclude Include="Src\Engine\Render\Texture\HFrameBuffer.h" />
+    <ClInclude Include="Src\Engine\Render\Texture\HFrameBuffer2D.h" />
+    <ClInclude Include="Src\Engine\Render\Texture\HFrameBufferDepth.h" />
+    <ClInclude Include="Src\Engine\Render\Texture\HRenderTarget2D.h" />
+    <ClInclude Include="Src\Engine\Render\Texture\HRenderTarget2DArray.h" />
+    <ClInclude Include="Src\Engine\Render\Texture\HRenderTarget2DMS.h" />
+    <ClInclude Include="Src\Engine\Render\Texture\HRenderTargetCube.h" />
+    <ClInclude Include="Src\Engine\Render\Texture\HTexture2D.h" />
+    <ClInclude Include="Src\Engine\Render\Texture\HTextureBase.h" />
+    <ClInclude Include="Src\Engine\Render\Texture\HTextureCube.h" />
+    <ClInclude Include="Src\Engine\Render\Texture\SImageCompressor.h" />
+    <ClInclude Include="Src\Engine\Render\Mesh\DLineWorkData.h" />
+    <ClInclude Include="Src\Engine\Render\Mesh\DStaticMeshAssetData.h" />
+    <ClInclude Include="Src\Engine\Render\Mesh\DStaticMeshData.h" />
+    <ClInclude Include="Src\Engine\Render\Mesh\HLineWork.h" />
+    <ClInclude Include="Src\Engine\Render\Mesh\HSceneQuad.h" />
+    <ClInclude Include="Src\Engine\Render\Mesh\HStaticMesh.h" />
+    <ClInclude Include="Src\Engine\Render\Mesh\ISurface.h" />
+    <ClInclude Include="Src\Engine\Render\Renderer\HRenderer.h" />
+    <ClInclude Include="Src\Engine\Render\RenderUtil\GLMath.h" />
+    <ClInclude Include="Src\Engine\Render\RenderUtil\GLUtil.h" />
+    <ClInclude Include="Src\Engine\Render\Scene\DCameraRenderData.h" />
+    <ClInclude Include="Src\Engine\Render\Scene\DSceneNodeRenderData.h" />
+    <ClInclude Include="Src\Engine\Render\Scene\HAmbientLightNode.h" />
+    <ClInclude Include="Src\Engine\Render\Scene\HCameraNode.h" />
+    <ClInclude Include="Src\Engine\Render\Scene\HDirectionalLightNode.h" />
+    <ClInclude Include="Src\Engine\Render\Scene\HLightNode.h" />
+    <ClInclude Include="Src\Engine\Render\Scene\HLineWorkNode.h" />
+    <ClInclude Include="Src\Engine\Render\Scene\HPointLightNode.h" />
+    <ClInclude Include="Src\Engine\Render\Scene\HScene.h" />
+    <ClInclude Include="Src\Engine\Render\Scene\HSceneNode.h" />
+    <ClInclude Include="Src\Engine\Render\Scene\HSpotLightNode.h" />
+    <ClInclude Include="Src\Engine\Render\Scene\HStaticMeshNode.h" />
+    <ClInclude Include="Src\Engine\Render\Scene\HSurfaceNode.h" />
+    <ClInclude Include="Src\Engine\Render\Shader\HEqMapConvert.h" />
+    <ClInclude Include="Src\Engine\Render\Shader\HIBLConvert.h" />
+    <ClInclude Include="Src\Engine\Render\Shader\HPostProcessMaterial.h" />
+    <ClInclude Include="Src\Engine\Render\Shader\HPostProcessShader.h" />
+    <ClInclude Include="Src\Engine\Render\Shader\HShaderBase.h" />
+    <ClInclude Include="Src\Engine\Render\Shader\HShadowDepthShader.h" />
+    <ClInclude Include="Src\Engine\Render\Shader\HSurfaceMaterial.h" />
+    <ClInclude Include="Src\Engine\Render\Shader\HSurfaceShader.h" />
+    <ClInclude Include="Src\Engine\UI\HWindow3D.h" />
+    <ClInclude Include="Src\Engine\UI\OS\SWindowsOSUtil.h" />
+    <ClInclude Include="Src\Engine\UI\SNativeMessage.h" />
+    <ClInclude Include="Src\Engine\Util\SEngine.h" />
+    <ClInclude Include="Src\Engine\Util\SPrimitiveConvert.h" />
+    <ClInclude Include="Src\Engine\Util\UtilTypes.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="README.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

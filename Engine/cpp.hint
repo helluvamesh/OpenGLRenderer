@@ -1,0 +1,37 @@
+// Hint files help the Visual Studio IDE interpret Visual C++ identifiers
+// such as names of functions and macros.
+// For more information see https://go.microsoft.com/fwlink/?linkid=865984
+
+#define REFLECT_H(__ClassName, __SuperClassName) \
+protected: \
+    static bool StaticInit; \
+    static Class ClassData; \
+public: \
+    static Class& GetDeclaredClass(); \
+    Class& GetClass() const; \
+private: \
+    typedef __ClassName cls; \
+    typedef __SuperClassName super;
+
+
+#define REFLECT(__ClassName) \
+static_assert( \
+    std::is_base_of<Struct, __ClassName>::value == false || \
+    (std::is_default_constructible<__ClassName>::value && std::is_polymorphic<__ClassName>::value == false), \
+    "Reflected structs must be default constructible and must not be polymorphic (virtual methods are not allowed)" \
+); \
+Class __ClassName::ClassData(u8#__ClassName, &__ClassName::super::ClassData); \
+Class& __ClassName::GetDeclaredClass() \
+{ \
+    return __ClassName::ClassData; \
+} \
+Class& __ClassName::GetClass() const \
+{ \
+    return __ClassName::ClassData; \
+} \
+bool __ClassName::StaticInit = []() { 
+    
+
+#define REFLECT_END() \
+    return true; \
+}();

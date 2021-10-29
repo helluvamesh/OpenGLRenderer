@@ -1,0 +1,94 @@
+-------- Classes --------
+
+- DClass (DClass.h)
+- DEnumClass (DEnumClass.h)
+- HObject (HObject.h)
+- DStruct (DStruct.h)
+- DField classes (Fields.h)
+- SFieldSelector (SFieldSelector.h)
+
+-------- Reflectable types --------
+
+- bool
+- enum with uint8 as underlying type
+-- serialized as uint8 with bounds checking on deserialization by binary serializers
+-- serialized as string by text serializers
+- int32
+- int64
+- float
+- double
+
+not in DSet and DMap and only with binary serializers:
+- uint8 
+- uint16
+- uint32
+- uint64
+- int8
+- int16
+
+- DString
+- DString8
+- DArray
+- DSet
+- DMap
+- classes inheriting from HObject
+- structs inheriting from DStruct
+-- for rules of struct reflection, read DStruct.h, in short they must be non-polymorphic and default constructible
+- structs inheriting from FFloatStruct
+-- are treated as float arrays by serializers (both binary and text based ones)
+-- an array of FFloatStruct is treated as a single flat float array
+-- this results in high performance serialization
+-- the rules of struct reflection also apply to FFloatStruct 
+
+-------- Example --------
+
+-- HPerson.h --
+
+DECLARE_ENUM(
+    EGender,
+    FEMALE,
+    MALE
+)
+
+class HPerson : public HObject
+{
+    REFLECT_H(HPerson, HObject)
+public:
+    DString Name;
+    EGender Gender;
+    int32 Age;
+};
+
+-- HPerson.cpp --
+
+REFLECT(HPerson)
+FIELD(Name)
+FIELD(Gender)
+FIELD(Age)
+REFLECT_END()
+
+
+-------- Nested containers --------
+
+- reflected nested containers can be achieved by wrapping the inner container with a DStruct
+
+-- declaration --
+
+.h:
+
+struct DNameStruct : public DStruct
+{
+    REFLECT_H(DNameStruct, DStruct)
+public:
+    DArray<DString> Names;
+};
+
+.cpp:
+
+REFLECT(DNameStruct)
+FIELD(Names)
+REFLECT_END()
+
+-- usage --
+
+DArray<DNameStruct> NestedArrays;

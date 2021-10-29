@@ -1,0 +1,5 @@
+
+// Preprocessor Definitions
+GLEW_STATIC
+LANG_DEBUG_CONTAINERS
+DEBUG_OPENGL
