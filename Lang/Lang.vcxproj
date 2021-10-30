@@ -261,7 +261,7 @@
     <ClInclude Include="Src\Lang\Util\SCounterUtil.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Lang.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
