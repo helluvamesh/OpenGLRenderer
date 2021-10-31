@@ -279,12 +279,6 @@ public:
 	}
 
 
-	FORCEINLINE static float Pow(float X, int32 Y)
-	{
-		return pow(X, Y);
-	}
-
-
 	FORCEINLINE static float ReverseLerp(float A, float B, float Result)
 	{
 		float v = B - A;

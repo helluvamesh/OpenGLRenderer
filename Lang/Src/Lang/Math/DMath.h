@@ -278,12 +278,6 @@ public:
 	}
 
 
-	FORCEINLINE static double Pow(double X, int32 Y)
-	{
-		return pow(X, Y);
-	}
-
-
 	FORCEINLINE static double ReverseLerp(double A, double B, double Result)
 	{
 		double v = B - A;
