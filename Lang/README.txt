@@ -6,7 +6,7 @@
 - Dynamic array
 - Hash map
 - Hash set
-- Doubly liked list
+- Doubly linked list
 - Single cast delegate
 - Multi cast delegate
 - Random number generator wrapper
