@@ -4,8 +4,7 @@ Realtime 3D Model Viewer for Windows using OpenGL 4<br/>
 Mesh formats: .gltf, .glb, .obj<br/>
 Image formats: .png, .hdr, .tga, .jpg, .psd<br/>
 <br/>
-[Download](Build/GLTF_ModelViewer_win64.zip)<br/>
-<a download="GLTF_ModelViewer_win64.zip" href="Build" title="Download">
+[Download](https://downgit.github.io/#/home?url=https://github.com/helluvamesh/OpenGLRenderer/blob/main/Build/GLTF_ModelViewer_win64.zip)<br/>
 <br/>
 ![DamagedHelmet](https://user-images.githubusercontent.com/19655951/139602928-b89f8123-eb4c-45a1-96ae-e844b1427028.jpg)
 ![Sponza](https://user-images.githubusercontent.com/19655951/139602931-db826c54-7475-400d-aaa2-3daf638dd77e.jpg)
