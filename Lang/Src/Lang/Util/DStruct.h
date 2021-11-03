@@ -16,7 +16,7 @@
     Reflected structs must be default constructible, 
     that is they must have a parameterless constructor or no explicitly defined constructor
     
-    If an object needs reflection AND polymorphism, inherit from 'HObject' instead
+    If a type needs both reflection and polymorphism, inherit from 'HObject' instead
 __________________________________________________________________________________*/
 
 

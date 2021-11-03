@@ -5,7 +5,8 @@
 
 	Base class for objects with reflection AND polymorphism
 
-	Inherit from 'DStruct' instead, if polymorphism is not allowed 
+	Inherit from 'DStruct' instead, if polymorphism is undesired 
+	but you still need reflection
 _____________________________________________________________________________*/
 
 
