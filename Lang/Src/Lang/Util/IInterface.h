@@ -4,8 +4,7 @@
 	
 	subclasses must have only pure virtual methods
 	e.g.: virtual void DoSomething() = 0;
-	
-	must not be subclassed deeper than 1 level
+
 ________________________________________________________*/
 
 
