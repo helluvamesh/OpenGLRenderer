@@ -52,7 +52,7 @@ or
 
 ---- reflection system ----
 
-- read ReflectionSystem.txt
+- see ReflectionSystem.txt
 
 
 ---- type prefixes ----
