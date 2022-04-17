@@ -228,11 +228,11 @@ cint DString8::LastIndexOf(DStringView8 Search, cint Start, cint Stop) const
 	if (Start >= this->Size || Stop < 0 || Stop > Start)
 	{
 		DString8 str = "Invalid range with reverse searching: start: ";
-		DNumberFormat8::DEFAULT.AppendTo(Start, str);
+		str.Append(DNumberFormat8::DEFAULT.ToString(Start));
 		str.Append(" stop: ");
-		DNumberFormat8::DEFAULT.AppendTo(Stop, str);
+		str.Append(DNumberFormat8::DEFAULT.ToString(Stop));
 		str.Append(" length: ");
-		DNumberFormat8::DEFAULT.AppendTo(this->Size, str);
+		str.Append(DNumberFormat8::DEFAULT.ToString(this->Size));
 
 		throw DIndexException(str.CString());
 	}
@@ -248,11 +248,11 @@ cint DString8::LastIndexOf(DStringView8 Source, DStringView8 Search, cint Start,
 	if (Start >= Source.Length() || Stop < 0 || Stop > Start)
 	{
 		DString8 str = "Invalid range with reverse searching: start: ";
-		DNumberFormat8::DEFAULT.AppendTo(Start, str);
+		str.Append(DNumberFormat8::DEFAULT.ToString(Start));
 		str.Append(" stop: ");
-		DNumberFormat8::DEFAULT.AppendTo(Stop, str);
+		str.Append(DNumberFormat8::DEFAULT.ToString(Stop));
 		str.Append(" length: ");
-		DNumberFormat8::DEFAULT.AppendTo(Source.Length(), str);
+		str.Append(DNumberFormat8::DEFAULT.ToString(Source.Length()));
 
 		throw DIndexException(str.CString());
 	}
@@ -900,11 +900,11 @@ cint DString8::LastIndexOfIgnoreCase_Ascii(DStringView8 Search, cint Start, cint
 	if (Start >= this->Size || Stop < 0 || Stop > Start)
 	{
 		DString8 str = "Invalid range with reverse searching: start: ";
-		DNumberFormat8::DEFAULT.AppendTo(Start, str);
+		str.Append(DNumberFormat8::DEFAULT.ToString(Start));
 		str.Append(" stop: ");
-		DNumberFormat8::DEFAULT.AppendTo(Stop, str);
+		str.Append(DNumberFormat8::DEFAULT.ToString(Stop));
 		str.Append(" length: ");
-		DNumberFormat8::DEFAULT.AppendTo(this->Size, str);
+		str.Append(DNumberFormat8::DEFAULT.ToString(this->Size));
 
 		throw DIndexException(str.CString());
 	}
@@ -925,11 +925,11 @@ cint DString8::LastIndexOfIgnoreCase_Ascii(DStringView8 Source, DStringView8 Sea
 	if (Start >= Source.Length() || Stop < 0 || Stop > Start)
 	{
 		DString8 str = "Invalid range with reverse searching: start: ";
-		DNumberFormat8::DEFAULT.AppendTo(Start, str);
+		str.Append(DNumberFormat8::DEFAULT.ToString(Start));
 		str.Append(" stop: ");
-		DNumberFormat8::DEFAULT.AppendTo(Stop, str);
+		str.Append(DNumberFormat8::DEFAULT.ToString(Stop));
 		str.Append(" length: ");
-		DNumberFormat8::DEFAULT.AppendTo(Source.Length(), str);
+		str.Append(DNumberFormat8::DEFAULT.ToString(Source.Length()));
 
 		throw DIndexException(str.CString());
 	}

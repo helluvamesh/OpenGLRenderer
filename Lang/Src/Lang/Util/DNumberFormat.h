@@ -53,45 +53,35 @@ public:
 	
 	void ToString(int32 Value, DString& Result) const;
 	DString ToString(int32 Value) const;
-	void AppendTo(int32 Value, DString& Result) const;
 	
 	void ToString(int64 Value, DString& Result) const;
 	DString ToString(int64 Value) const;
-	void AppendTo(int64 Value, DString& Result) const;
 	
 	void ToString(uint32 Value, DString& Result) const;
 	DString ToString(uint32 Value) const;
-	void AppendTo(uint32 Value, DString& Result) const;
 
 	void ToString(uint64 Value, DString& Result) const;
 	DString ToString(uint64 Value) const;
-	void AppendTo(uint64 Value, DString& Result) const;
 
 
 	void ToString(int8 Value, DString& Result) const;
 	DString ToString(int8 Value) const;
-	void AppendTo(int8 Value, DString& Result) const;
 
 	void ToString(int16 Value, DString& Result) const;
 	DString ToString(int16 Value) const;
-	void AppendTo(int16 Value, DString& Result) const;
 
 	void ToString(uint8 Value, DString& Result) const;
 	DString ToString(uint8 Value) const;
-	void AppendTo(uint8 Value, DString& Result) const;
 
 	void ToString(uint16 Value, DString& Result) const;
 	DString ToString(uint16 Value) const;
-	void AppendTo(uint16 Value, DString& Result) const;
 
 
 	void ToString(float Value, DString& Result) const;
 	DString ToString(float Value) const;
-	void AppendTo(float Value, DString& Result) const;
 	
 	void ToString(double Value, DString& Result) const;
 	DString ToString(double Value) const;
-	void AppendTo(double Value, DString& Result) const;
 
 };
 
@@ -148,44 +138,34 @@ public:
 
 	void ToString(int32 Value, DString8& Result) const;
 	DString8 ToString(int32 Value) const;
-	void AppendTo(int32 Value, DString8& Result) const;
 	
 	void ToString(int64 Value, DString8& Result) const;
 	DString8 ToString(int64 Value) const;
-	void AppendTo(int64 Value, DString8& Result) const;
 
 	void ToString(uint32 Value, DString8& Result) const;
 	DString8 ToString(uint32 Value) const;
-	void AppendTo(uint32 Value, DString8& Result) const;
 
 	void ToString(uint64 Value, DString8& Result) const;
 	DString8 ToString(uint64 Value) const;
-	void AppendTo(uint64 Value, DString8& Result) const;
 
 
 	void ToString(int8 Value, DString8& Result) const;
 	DString8 ToString(int8 Value) const;
-	void AppendTo(int8 Value, DString8& Result) const;
 
 	void ToString(int16 Value, DString8& Result) const;
 	DString8 ToString(int16 Value) const;
-	void AppendTo(int16 Value, DString8& Result) const;
 
 	void ToString(uint8 Value, DString8& Result) const;
 	DString8 ToString(uint8 Value) const;
-	void AppendTo(uint8 Value, DString8& Result) const;
 
 	void ToString(uint16 Value, DString8& Result) const;
 	DString8 ToString(uint16 Value) const;
-	void AppendTo(uint16 Value, DString8& Result) const;
 
 
 	void ToString(float Value, DString8& Result) const;
 	DString8 ToString(float Value) const;
-	void AppendTo(float Value, DString8& Result) const;
 
 	void ToString(double Value, DString8& Result) const;
 	DString8 ToString(double Value) const;
-	void AppendTo(double Value, DString8& Result) const;
 
 };

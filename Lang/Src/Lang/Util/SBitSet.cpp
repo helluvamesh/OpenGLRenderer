@@ -40,7 +40,7 @@ void SBitSet::Set(uint8& Flags, uint8 Index, bool Value)
 
 bool SBitSet::OverlapTRUE(uint8 A, uint8 B) 
 {
-	for (uint8 i = 0; i < 32U; ++i)
+	for (uint8 i = 0; i < 8U; ++i)
 	{
 		bool a = (bool)((A >> i) & 1U);
 		bool b = (bool)((B >> i) & 1U);
@@ -110,7 +110,7 @@ void SBitSet::Set(uint16& Flags, uint8 Index, bool Value)
 
 bool SBitSet::OverlapTRUE(uint16 A, uint16 B) 
 {
-	for (uint8 i = 0; i < 32U; ++i)
+	for (uint8 i = 0; i < 16U; ++i)
 	{
 		bool a = (bool)((A >> i) & 1U);
 		bool b = (bool)((B >> i) & 1U);
@@ -250,7 +250,7 @@ void SBitSet::Set(uint64& Flags, uint8 Index, bool Value)
 
 bool SBitSet::OverlapTRUE(uint64 A, uint64 B) 
 {
-	for (uint8 i = 0; i < 32U; ++i)
+	for (uint8 i = 0; i < 64U; ++i)
 	{
 		bool a = (bool)((A >> i) & 1ULL);
 		bool b = (bool)((B >> i) & 1ULL);

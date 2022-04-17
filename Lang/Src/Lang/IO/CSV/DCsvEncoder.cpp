@@ -39,14 +39,12 @@ void DCsvEncoder::AppendStringToCSVString(const DString8& Src, DString8& Out)
     
     if (containsQuote)
     {
-        Out.ReserveExtra(2 + Src.Length());
         Out.Append(this->Syntax.EscapeChar);
         Out.Append(Src.AllReplaced(this->Escape, this->EscapeRelacement));
         Out.Append(this->Syntax.EscapeChar);
     }
     else if (containsDelimiter || containsLineBreak || this->Syntax.ExportQuoteAllFields)
     {
-        Out.ReserveExtra(2 + Src.Length());
         Out.Append(this->Syntax.EscapeChar);
         Out.Append(Src);
         Out.Append(this->Syntax.EscapeChar);
@@ -132,40 +130,28 @@ void DCsvEncoder::EncodeRecord(const DStruct* Obj, const DClass& Cls, const DStr
         {
             const DIntField<DStruct>* field = static_cast<const DIntField<DStruct>*>(f);
             if (i++ > 0) Out.Append(this->Syntax.Delimiter);
-            this->NumberFormatter.AppendTo(
-                *field->GetPtr(Obj),
-                Out
-            );
+            Out.Append(this->NumberFormatter.ToString(*field->GetPtr(Obj)));
             break;
         }
         case EArchType::INT64:
         {
             const DInt64Field<DStruct>* field = static_cast<const DInt64Field<DStruct>*>(f);
             if (i++ > 0) Out.Append(this->Syntax.Delimiter);
-            this->NumberFormatter.AppendTo(
-                *field->GetPtr(Obj),
-                Out
-            );
+            Out.Append(this->NumberFormatter.ToString(*field->GetPtr(Obj)));
             break;
         }
         case EArchType::FLOAT:
         {
             const DFloatField<DStruct>* field = static_cast<const DFloatField<DStruct>*>(f);
             if (i++ > 0) Out.Append(this->Syntax.Delimiter);
-            this->NumberFormatter.AppendTo(
-                *field->GetPtr(Obj), 
-                Out
-            );
+            Out.Append(this->NumberFormatter.ToString(*field->GetPtr(Obj)));
             break;
         }
         case EArchType::DOUBLE:
         {
             const DDoubleField<DStruct>* field = static_cast<const DDoubleField<DStruct>*>(f);
             if (i++ > 0) Out.Append(this->Syntax.Delimiter);
-            this->NumberFormatter.AppendTo(
-                *field->GetPtr(Obj),
-                Out
-            );
+            Out.Append(this->NumberFormatter.ToString(*field->GetPtr(Obj)));
             break;
         }
         case EArchType::STRING:

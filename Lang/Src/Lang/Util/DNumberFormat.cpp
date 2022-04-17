@@ -344,25 +344,6 @@ DString DNumberFormat::ToString(int32 Value) const
 }
 
 
-void DNumberFormat::AppendTo(int32 Value, DString& Result) const
-{
-    cint len = DNumberFormatCore<tchar>::GetIntBufferSize<int32>(
-        Value, 
-        this->MinIntegralDigits,
-        this->UseGroupSeparator
-    );
-    Result.ReserveExtra(len);
-    cint finalLen =DNumberFormatCore<tchar>::IntToString<int32>(
-        Value, 
-        Result.GetDataUnsafe() + Result.Length(),
-        this->MinIntegralDigits, 
-        this->UseGroupSeparator, 
-        this->GroupSeparator
-        );
-    Result.OverwriteLengthUnsafe(Result.Length() + finalLen);
-}
-
-
 void DNumberFormat::ToString(int64 Value, DString& Result) const
 {
     cint len = DNumberFormatCore<tchar>::GetIntBufferSize<int64>(
@@ -387,25 +368,6 @@ DString DNumberFormat::ToString(int64 Value) const
     DString buffer;
     ToString(Value, buffer);
     return buffer;
-}
-
-
-void DNumberFormat::AppendTo(int64 Value, DString& Result) const
-{
-    cint len = DNumberFormatCore<tchar>::GetIntBufferSize<int64>(
-        Value, 
-        this->MinIntegralDigits,
-        this->UseGroupSeparator
-    );
-    Result.ReserveExtra(len);
-    cint finalLen =DNumberFormatCore<tchar>::IntToString<int64>(
-        Value, 
-        Result.GetDataUnsafe() + Result.Length(),
-        this->MinIntegralDigits, 
-        this->UseGroupSeparator, 
-        this->GroupSeparator
-        );
-    Result.OverwriteLengthUnsafe(Result.Length() + finalLen);
 }
 
 
@@ -436,25 +398,6 @@ DString DNumberFormat::ToString(uint32 Value) const
 }
 
 
-void DNumberFormat::AppendTo(uint32 Value, DString& Result) const
-{
-    cint len = DNumberFormatCore<tchar>::GetIntBufferSize<uint32>(
-        Value, 
-        this->MinIntegralDigits,
-        this->UseGroupSeparator
-    );
-    Result.ReserveExtra(len);
-    cint finalLen = DNumberFormatCore<tchar>::IntToString<uint32>(
-        Value, 
-        Result.GetDataUnsafe() + Result.Length(),
-        this->MinIntegralDigits, 
-        this->UseGroupSeparator, 
-        this->GroupSeparator
-        );
-    Result.OverwriteLengthUnsafe(Result.Length() + finalLen);
-}
-
-
 void DNumberFormat::ToString(uint64 Value, DString& Result) const
 {
     cint len = DNumberFormatCore<tchar>::GetIntBufferSize<uint64>(
@@ -482,25 +425,6 @@ DString DNumberFormat::ToString(uint64 Value) const
 }
 
 
-void DNumberFormat::AppendTo(uint64 Value, DString& Result) const
-{
-    cint len = DNumberFormatCore<tchar>::GetIntBufferSize<uint64>(
-        Value, 
-        this->MinIntegralDigits,
-        this->UseGroupSeparator
-    );
-    Result.ReserveExtra(len);
-    cint finalLen = DNumberFormatCore<tchar>::IntToString<uint64>(
-        Value, 
-        Result.GetDataUnsafe() + Result.Length(),
-        this->MinIntegralDigits, 
-        this->UseGroupSeparator, 
-        this->GroupSeparator
-        );
-    Result.OverwriteLengthUnsafe(Result.Length() + finalLen);
-}
-
-
 void DNumberFormat::ToString(int8 Value, DString& Result) const
 {
     this->ToString((int32)Value, Result);
@@ -510,12 +434,6 @@ void DNumberFormat::ToString(int8 Value, DString& Result) const
 DString DNumberFormat::ToString(int8 Value) const
 {
     return this->ToString((int32)Value);
-}
-
-
-void DNumberFormat::AppendTo(int8 Value, DString& Result) const
-{
-    this->AppendTo((int32)Value, Result);
 }
 
 
@@ -531,12 +449,6 @@ DString DNumberFormat::ToString(int16 Value) const
 }
 
 
-void DNumberFormat::AppendTo(int16 Value, DString& Result) const
-{
-    this->AppendTo((int32)Value, Result);
-}
-
-
 void DNumberFormat::ToString(uint8 Value, DString& Result) const
 {
     this->ToString((uint32)Value, Result);
@@ -549,12 +461,6 @@ DString DNumberFormat::ToString(uint8 Value) const
 }
 
 
-void DNumberFormat::AppendTo(uint8 Value, DString& Result) const
-{
-    this->AppendTo((uint32)Value, Result);
-}
-
-
 void DNumberFormat::ToString(uint16 Value, DString& Result) const
 {
     this->ToString((uint32)Value, Result);
@@ -564,12 +470,6 @@ void DNumberFormat::ToString(uint16 Value, DString& Result) const
 DString DNumberFormat::ToString(uint16 Value) const
 {
     return this->ToString((uint32)Value);
-}
-
-
-void DNumberFormat::AppendTo(uint16 Value, DString& Result) const
-{
-    this->AppendTo((uint32)Value, Result);
 }
 
 
@@ -617,43 +517,6 @@ DString DNumberFormat::ToString(float Value) const
 }
 
 
-void DNumberFormat::AppendTo(float Value, DString& Result) const
-{
-    if (FMath::IsNaN(Value))
-    {
-        Result.Append(NAN_STRING);
-        return;
-    }
-    else if (FMath::IsInf(Value))
-    {
-        Result.Append(Value >= .0f? INF_STRING : NEG_INF_STRING);
-        return;
-    }
-
-    bool fastMethod;
-    cint len = DNumberFormatCore<tchar>::GetMaxNeededFloatBufferSize<float>(
-        Value, 
-        this->MaxFloatFractionDigits, 
-        this->UseGroupSeparator, 
-        /*out*/fastMethod
-        );
-    Result.ReserveExtra(len);
-    cint finalLen = DNumberFormatCore<tchar>::FloatToString<float>(
-        Value, 
-        Result.GetDataUnsafe() + Result.Length(), 
-        len, 
-        fastMethod, 
-        this->MinFloatFractionDigits, 
-        this->MaxFloatFractionDigits, 
-        this->DecimalSeparator, 
-        this->UseGroupSeparator,
-        this->GroupSeparator
-        );
-    Result.OverwriteLengthUnsafe(Result.Length() + finalLen);
-}
-
-
-
 void DNumberFormat::ToString(double Value, DString& Result) const
 {
     if (DMath::IsNaN(Value))
@@ -696,44 +559,6 @@ DString DNumberFormat::ToString(double Value) const
     ToString(Value, buffer);
     return buffer;
 }
-
-
-void DNumberFormat::AppendTo(double Value, DString& Result) const
-{
-    if (DMath::IsNaN(Value))
-    {
-        Result.Append(NAN_STRING);
-        return;
-    }
-    else if (DMath::IsInf(Value))
-    {
-        Result.Append(Value >= .0? INF_STRING : NEG_INF_STRING);
-        return;
-    }
-
-    bool fastMethod;
-    cint len = DNumberFormatCore<tchar>::GetMaxNeededFloatBufferSize<double>(
-        Value, 
-        this->MaxDoubleFractionDigits, 
-        this->UseGroupSeparator, 
-        /*out*/fastMethod
-        );
-    Result.ReserveExtra(len);
-    cint finalLen = DNumberFormatCore<tchar>::FloatToString<double>(
-        Value, 
-        Result.GetDataUnsafe() + Result.Length(), 
-        len, 
-        fastMethod, 
-        this->MinDoubleFractionDigits, 
-        this->MaxDoubleFractionDigits, 
-        this->DecimalSeparator, 
-        this->UseGroupSeparator,
-        this->GroupSeparator
-        );
-    Result.OverwriteLengthUnsafe(Result.Length() + finalLen);
-}
-
-
 
 
 const DNumberFormat8 DNumberFormat8::DEFAULT;
@@ -806,25 +631,6 @@ DString8 DNumberFormat8::ToString(int32 Value) const
 }
 
 
-void DNumberFormat8::AppendTo(int32 Value, DString8& Result) const
-{
-    cint len = DNumberFormatCore<char8>::GetIntBufferSize<int32>(
-        Value, 
-        this->MinIntegralDigits,
-        this->UseGroupSeparator
-    );
-    Result.ReserveExtra(len);
-    cint finalLen = DNumberFormatCore<char8>::IntToString<int32>(
-        Value, 
-        Result.GetDataUnsafe() + Result.Length(),
-        this->MinIntegralDigits, 
-        this->UseGroupSeparator, 
-        this->GroupSeparator
-        );
-    Result.OverwriteLengthUnsafe(Result.Length() + finalLen);
-}
-
-
 void DNumberFormat8::ToString(int64 Value, DString8& Result) const
 {
     cint len = DNumberFormatCore<char8>::GetIntBufferSize<int64>(
@@ -849,25 +655,6 @@ DString8 DNumberFormat8::ToString(int64 Value) const
     DString8 buffer;
     ToString(Value, buffer);
     return buffer;
-}
-
-
-void DNumberFormat8::AppendTo(int64 Value, DString8& Result) const
-{
-    cint len = DNumberFormatCore<char8>::GetIntBufferSize<int64>(
-        Value, 
-        this->MinIntegralDigits,
-        this->UseGroupSeparator
-    );
-    Result.ReserveExtra(len);
-    cint finalLen =DNumberFormatCore<char8>::IntToString<int64>(
-        Value, 
-        Result.GetDataUnsafe() + Result.Length(),
-        this->MinIntegralDigits, 
-        this->UseGroupSeparator, 
-        this->GroupSeparator
-        );
-    Result.OverwriteLengthUnsafe(Result.Length() + finalLen);
 }
 
 
@@ -898,25 +685,6 @@ DString8 DNumberFormat8::ToString(uint32 Value) const
 }
 
 
-void DNumberFormat8::AppendTo(uint32 Value, DString8& Result) const
-{
-    cint len = DNumberFormatCore<char8>::GetIntBufferSize<uint32>(
-        Value, 
-        this->MinIntegralDigits,
-        this->UseGroupSeparator
-    );
-    Result.ReserveExtra(len);
-    cint finalLen = DNumberFormatCore<char8>::IntToString<uint32>(
-        Value, 
-        Result.GetDataUnsafe() + Result.Length(),
-        this->MinIntegralDigits, 
-        this->UseGroupSeparator, 
-        this->GroupSeparator
-        );
-    Result.OverwriteLengthUnsafe(Result.Length() + finalLen);
-}
-
-
 void DNumberFormat8::ToString(uint64 Value, DString8& Result) const
 {
     cint len = DNumberFormatCore<char8>::GetIntBufferSize<uint64>(
@@ -944,25 +712,6 @@ DString8 DNumberFormat8::ToString(uint64 Value) const
 }
 
 
-void DNumberFormat8::AppendTo(uint64 Value, DString8& Result) const
-{
-    cint len = DNumberFormatCore<char8>::GetIntBufferSize<uint64>(
-        Value, 
-        this->MinIntegralDigits,
-        this->UseGroupSeparator
-    );
-    Result.ReserveExtra(len);
-    cint finalLen = DNumberFormatCore<char8>::IntToString<uint64>(
-        Value, 
-        Result.GetDataUnsafe() + Result.Length(),
-        this->MinIntegralDigits, 
-        this->UseGroupSeparator, 
-        this->GroupSeparator
-        );
-    Result.OverwriteLengthUnsafe(Result.Length() + finalLen);
-}
-
-
 void DNumberFormat8::ToString(int8 Value, DString8& Result) const
 {
     this->ToString((int32)Value, Result);
@@ -972,12 +721,6 @@ void DNumberFormat8::ToString(int8 Value, DString8& Result) const
 DString8 DNumberFormat8::ToString(int8 Value) const
 {
     return this->ToString((int32)Value);
-}
-
-
-void DNumberFormat8::AppendTo(int8 Value, DString8& Result) const
-{
-    this->AppendTo((int32)Value, Result);
 }
 
 
@@ -993,12 +736,6 @@ DString8 DNumberFormat8::ToString(int16 Value) const
 }
 
 
-void DNumberFormat8::AppendTo(int16 Value, DString8& Result) const
-{
-    this->AppendTo((int32)Value, Result);
-}
-
-
 void DNumberFormat8::ToString(uint8 Value, DString8& Result) const
 {
     this->ToString((uint32)Value, Result);
@@ -1011,12 +748,6 @@ DString8 DNumberFormat8::ToString(uint8 Value) const
 }
 
 
-void DNumberFormat8::AppendTo(uint8 Value, DString8& Result) const
-{
-    this->AppendTo((uint32)Value, Result);
-}
-
-
 void DNumberFormat8::ToString(uint16 Value, DString8& Result) const
 {
     this->ToString((uint32)Value, Result);
@@ -1026,12 +757,6 @@ void DNumberFormat8::ToString(uint16 Value, DString8& Result) const
 DString8 DNumberFormat8::ToString(uint16 Value) const
 {
     return this->ToString((uint32)Value);
-}
-
-
-void DNumberFormat8::AppendTo(uint16 Value, DString8& Result) const
-{
-    this->AppendTo((uint32)Value, Result);
 }
 
 
@@ -1079,43 +804,6 @@ DString8 DNumberFormat8::ToString(float Value) const
 }
 
 
-void DNumberFormat8::AppendTo(float Value, DString8& Result) const
-{
-    if (FMath::IsNaN(Value))
-    {
-        Result.Append(NAN_STRING);
-        return;
-    }
-    else if (FMath::IsInf(Value))
-    {
-        Result.Append(Value >= .0f? INF_STRING : NEG_INF_STRING);
-        return;
-    }
-
-    bool fastMethod;
-    cint len = DNumberFormatCore<char8>::GetMaxNeededFloatBufferSize<float>(
-        Value, 
-        this->MaxFloatFractionDigits, 
-        this->UseGroupSeparator, 
-        /*out*/fastMethod
-        );
-    Result.ReserveExtra(len);
-    cint finalLen = DNumberFormatCore<char8>::FloatToString<float>(
-        Value, 
-        Result.GetDataUnsafe() + Result.Length(), 
-        len, 
-        fastMethod, 
-        this->MinFloatFractionDigits, 
-        this->MaxFloatFractionDigits, 
-        this->DecimalSeparator, 
-        this->UseGroupSeparator,
-        this->GroupSeparator
-        );
-    Result.OverwriteLengthUnsafe(Result.Length() + finalLen);
-}
-
-
-
 void DNumberFormat8::ToString(double Value, DString8& Result) const
 {
     if (DMath::IsNaN(Value))
@@ -1157,40 +845,4 @@ DString8 DNumberFormat8::ToString(double Value) const
     DString8 buffer;
     ToString(Value, buffer);
     return buffer;
-}
-
-
-void DNumberFormat8::AppendTo(double Value, DString8& Result) const
-{
-    if (DMath::IsNaN(Value))
-    {
-        Result = NAN_STRING;
-        return;
-    }
-    else if (DMath::IsInf(Value))
-    {
-        Result.Append(Value >= .0? INF_STRING : NEG_INF_STRING);
-        return;
-    }
-
-    bool fastMethod;
-    cint len = DNumberFormatCore<char8>::GetMaxNeededFloatBufferSize<double>(
-        Value, 
-        this->MaxDoubleFractionDigits, 
-        this->UseGroupSeparator, 
-        /*out*/fastMethod
-        );
-    Result.ReserveExtra(len);
-    cint finalLen = DNumberFormatCore<char8>::FloatToString<double>(
-        Value, 
-        Result.GetDataUnsafe() + Result.Length(), 
-        len, 
-        fastMethod, 
-        this->MinDoubleFractionDigits, 
-        this->MaxDoubleFractionDigits, 
-        this->DecimalSeparator, 
-        this->UseGroupSeparator,
-        this->GroupSeparator
-        );
-    Result.OverwriteLengthUnsafe(Result.Length() + finalLen);
 }

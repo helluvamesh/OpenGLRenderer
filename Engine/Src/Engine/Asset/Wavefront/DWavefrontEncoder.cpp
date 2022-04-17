@@ -15,22 +15,22 @@ void DWavefrontEncoder::Encode(const DStaticMeshData& Mesh, DStringView ObjectNa
 		for (const FVec3& pos : submesh.Positions)
 		{
 			Result.Append("v ");
-			DNumberFormat8::DEFAULT.AppendTo(pos.X, Result);
+			Result.Append(DNumberFormat8::DEFAULT.ToString(pos.X));
 			Result.Append(" ");
-			DNumberFormat8::DEFAULT.AppendTo(pos.Y, Result);
+			Result.Append(DNumberFormat8::DEFAULT.ToString(pos.Y));
 			Result.Append(" ");
-			DNumberFormat8::DEFAULT.AppendTo(pos.Z, Result);
+			Result.Append(DNumberFormat8::DEFAULT.ToString(pos.Z));
 			Result.Append("\n");
 		}
 
 		for (const FVec3& nor : submesh.Normals)
 		{
 			Result.Append("vn ");
-			DNumberFormat8::DEFAULT.AppendTo(nor.X, Result);
+			Result.Append(DNumberFormat8::DEFAULT.ToString(nor.X));
 			Result.Append(" ");
-			DNumberFormat8::DEFAULT.AppendTo(nor.Y, Result);
+			Result.Append(DNumberFormat8::DEFAULT.ToString(nor.Y));
 			Result.Append(" ");
-			DNumberFormat8::DEFAULT.AppendTo(nor.Z, Result);
+			Result.Append(DNumberFormat8::DEFAULT.ToString(nor.Z));
 			Result.Append("\n");
 		}
 
@@ -39,9 +39,9 @@ void DWavefrontEncoder::Encode(const DStaticMeshData& Mesh, DStringView ObjectNa
 			for (const FVec2& uv : submesh.UVLayers[0].UVs)
 			{
 				Result.Append("vt ");
-				DNumberFormat8::DEFAULT.AppendTo(uv.X, Result);
+				Result.Append(DNumberFormat8::DEFAULT.ToString(uv.X));
 				Result.Append(" ");
-				DNumberFormat8::DEFAULT.AppendTo(uv.Y, Result);
+				Result.Append(DNumberFormat8::DEFAULT.ToString(uv.Y));
 				Result.Append("\n");
 			}
 		}

@@ -49,7 +49,7 @@ bool glCheckError(DStringView8 file, int32 line)
         msg.Append("): ");
         msg.Append(*message);
         msg.Append(" in line ");
-        DNumberFormat8::DEFAULT.AppendTo(line, msg);
+        msg.Append(DNumberFormat8::DEFAULT.ToString(line));
         msg.Append(", file: ");
         msg.Append(file);
 

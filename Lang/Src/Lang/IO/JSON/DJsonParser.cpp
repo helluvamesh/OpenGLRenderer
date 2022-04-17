@@ -1675,7 +1675,7 @@ cint DJsonParser::Skip(cint Start)
 		}
 		else
 		{
-			throw new DJsonException("Failed to find json type", jstr, progress);
+			throw DJsonException("Failed to find json type", jstr, progress);
 		}
 	}
 	return -1;

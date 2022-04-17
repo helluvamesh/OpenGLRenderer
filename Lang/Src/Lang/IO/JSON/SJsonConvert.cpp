@@ -63,7 +63,7 @@ void SJsonConvert<UINT8_ENUM>::AppendItemToJsonString(DEnumClass* EnClass, uint8
     {
         DString8 s;
         s.Append('\"');
-        SJsonUtils::NumberFormatter.AppendTo(Value, s);
+        s.Append(SJsonUtils::NumberFormatter.ToString(Value));
         s.Append('\"');
         JStr.Append(s);
     }
@@ -72,7 +72,7 @@ void SJsonConvert<UINT8_ENUM>::AppendItemToJsonString(DEnumClass* EnClass, uint8
 
 void SJsonConvert<int32>::AppendItemToJsonString(int32 Value, DString8& JStr)
 {
-    SJsonUtils::NumberFormatter.AppendTo(Value, JStr);
+    JStr.Append(SJsonUtils::NumberFormatter.ToString(Value));
 }
 
 
@@ -85,7 +85,7 @@ cint SJsonConvert<int32>::JsonStringToItem(const DString8& JStr, cint Start, int
 
 void SJsonConvert<int64>::AppendItemToJsonString(int64 Value, DString8& JStr)
 {
-    SJsonUtils::NumberFormatter.AppendTo(Value, JStr);
+    JStr.Append(SJsonUtils::NumberFormatter.ToString(Value));
 }
 
 
@@ -98,7 +98,7 @@ cint SJsonConvert<int64>::JsonStringToItem(const DString8& JStr, cint Start, int
 
 void SJsonConvert<float>::AppendItemToJsonString(float Value, DString8& JStr)
 {
-    SJsonUtils::NumberFormatter.AppendTo(Value, JStr);
+    JStr.Append(SJsonUtils::NumberFormatter.ToString(Value));
 }
 
 
@@ -111,7 +111,7 @@ cint SJsonConvert<float>::JsonStringToItem(const DString8& JStr, cint Start, flo
 
 void SJsonConvert<double>::AppendItemToJsonString(double Value, DString8& JStr)
 {
-    SJsonUtils::NumberFormatter.AppendTo(Value, JStr);
+    JStr.Append(SJsonUtils::NumberFormatter.ToString(Value));
 }
 
 

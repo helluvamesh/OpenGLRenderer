@@ -23,7 +23,7 @@ DClass& HObject::GetClass() const
 DString HObject::ToString() const
 {
 	DString str = DStrings::UTF8ToUTF16(this->GetClass().GetClassName());
-	str += TX(" object at ");
-	DNumberFormat::DEFAULT.AppendTo((uint64)std::hash<const void*>{}(this), str);
+	str.Append(TX(" object at "));
+	str.Append(DNumberFormat::DEFAULT.ToString((uint64)std::hash<const void*>{}(this)));
 	return str;
 }

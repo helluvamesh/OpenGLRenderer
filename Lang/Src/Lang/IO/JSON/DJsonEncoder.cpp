@@ -7,7 +7,6 @@
 FORCEINLINE void DJsonEncoder::DoIndent()
 {
     cint len = this->IndentLevel * this->IndentStep;
-    this->JStr->ReserveExtra(len);
     for (cint i = 0; i < len; ++i)
     {
         this->JStr->Append(' ');
