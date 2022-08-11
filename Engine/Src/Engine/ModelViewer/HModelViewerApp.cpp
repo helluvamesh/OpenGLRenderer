@@ -36,7 +36,7 @@ int32 HModelViewerApp::Start(int32 ArgCount, const char** Args)
     SLog::Message(DString::Format(TX("OpenGL {0}.{1}"), { majorVersion, minorVersion }));
 
     int32 versionCmp = HRenderer::CompareOpenGLVersions(
-        majorVersion, minorVersion, config.MinOpenGLVersionMajor, config.MinOpenGLVersionMajor
+        majorVersion, minorVersion, config.MinOpenGLVersionMajor, config.MinOpenGLVersionMinor
     );
     if (versionCmp < 0)
     {

@@ -8,7 +8,7 @@
 bool SBitSet::Get(uint8 Flags, uint8 Index)
 {
 #ifdef LANG_DEBUG_CONTAINERS
-	if (Index >= 8 || Index < 0)
+	if (Index >= 8)
 	{
 		throw DIndexException(Index, 8);
 	}
@@ -21,7 +21,7 @@ bool SBitSet::Get(uint8 Flags, uint8 Index)
 void SBitSet::Set(uint8& Flags, uint8 Index, bool Value)
 {
 #ifdef LANG_DEBUG_CONTAINERS
-	if (Index >= 8 || Index < 0)
+	if (Index >= 8)
 	{
 		throw DIndexException(Index, 8);
 	}
@@ -59,15 +59,15 @@ DString SBitSet::ToString(uint8 Flags)
 	cint last_i = bitCount - 1;
 	for (cint i = 0; i < bitCount; ++i)
 	{
-		s.Append(
-			SBitSet::Get(Flags, i)? TX("1") : TX("0")
-		);
-		if (i < last_i)
+		if (i > 0)
 		{
-			s.Append(TX(" "));
+			s.Append(TX(' '));
 		}
+		s.Append(
+			SBitSet::Get(Flags, i)? TX('1') : TX('0')
+		);
 	}
-	s.Append(TX(")"));
+	s.Append(TX(')'));
 	return s;
 }
 
@@ -78,9 +78,9 @@ DString SBitSet::ToString(uint8 Flags)
 bool SBitSet::Get(uint16 Flags, uint8 Index)
 {
 #ifdef LANG_DEBUG_CONTAINERS
-	if (Index >= 16 || Index < 0)
+	if (Index >= 16)
 	{
-		throw DIndexException(Index, 8);
+		throw DIndexException(Index, 16);
 	}
 #endif
 
@@ -91,7 +91,7 @@ bool SBitSet::Get(uint16 Flags, uint8 Index)
 void SBitSet::Set(uint16& Flags, uint8 Index, bool Value)
 {
 #ifdef LANG_DEBUG_CONTAINERS
-	if (Index >= 16 || Index < 0)
+	if (Index >= 16)
 	{
 		throw DIndexException(Index, 16);
 	}
@@ -126,18 +126,17 @@ DString SBitSet::ToString(uint16 Flags)
 	DString s;
 	s.Reserve(8 + bitCount * 2 - 1);
 	s.Append(TX("SBitSet("));
-	cint last_i = bitCount - 1;
 	for (cint i = 0; i < bitCount; ++i)
 	{
-		s.Append(
-			SBitSet::Get(Flags, i)? TX("1") : TX("0")
-		);
-		if (i < last_i)
+		if (i > 0)
 		{
-			s.Append(TX(" "));
+			s.Append(TX(' '));
 		}
+		s.Append(
+			SBitSet::Get(Flags, i)? TX('1') : TX('0')
+		);
 	}
-	s.Append(TX(")"));
+	s.Append(TX(')'));
 	return s;
 }
 
@@ -148,9 +147,9 @@ DString SBitSet::ToString(uint16 Flags)
 bool SBitSet::Get(uint32 Flags, uint8 Index)
 {
 #ifdef LANG_DEBUG_CONTAINERS
-	if (Index >= 32 || Index < 0)
+	if (Index >= 32)
 	{
-		throw DIndexException(Index, 8);
+		throw DIndexException(Index, 32);
 	}
 #endif
 
@@ -161,7 +160,7 @@ bool SBitSet::Get(uint32 Flags, uint8 Index)
 void SBitSet::Set(uint32& Flags, uint8 Index, bool Value)
 {
 #ifdef LANG_DEBUG_CONTAINERS
-	if (Index >= 32 || Index < 0)
+	if (Index >= 32)
 	{
 		throw DIndexException(Index, 32);
 	}
@@ -196,18 +195,17 @@ DString SBitSet::ToString(uint32 Flags)
 	DString s;
 	s.Reserve(8 + bitCount * 2 - 1);
 	s.Append(TX("SBitSet("));
-	cint last_i = bitCount - 1;
 	for (cint i = 0; i < bitCount; ++i)
 	{
-		s.Append(
-			SBitSet::Get(Flags, i)? TX("1") : TX("0")
-		);
-		if (i < last_i)
+		if (i > 0)
 		{
-			s.Append(TX(" "));
+			s.Append(TX(' '));
 		}
+		s.Append(
+			SBitSet::Get(Flags, i)? TX('1') : TX('0')
+		);
 	}
-	s.Append(TX(")"));
+	s.Append(TX(')'));
 	return s;
 }
 
@@ -218,9 +216,9 @@ DString SBitSet::ToString(uint32 Flags)
 bool SBitSet::Get(uint64 Flags, uint8 Index)
 {
 #ifdef LANG_DEBUG_CONTAINERS
-	if (Index >= 64 || Index < 0)
+	if (Index >= 64)
 	{
-		throw DIndexException(Index, 8);
+		throw DIndexException(Index, 64);
 	}
 #endif
 
@@ -231,7 +229,7 @@ bool SBitSet::Get(uint64 Flags, uint8 Index)
 void SBitSet::Set(uint64& Flags, uint8 Index, bool Value)
 {
 #ifdef LANG_DEBUG_CONTAINERS
-	if (Index >= 64 || Index < 0)
+	if (Index >= 64)
 	{
 		throw DIndexException(Index, 64);
 	}
@@ -266,17 +264,16 @@ DString SBitSet::ToString(uint64 Flags)
 	DString s;
 	s.Reserve(8 + bitCount * 2 - 1);
 	s.Append(TX("SBitSet("));
-	cint last_i = bitCount - 1;
 	for (cint i = 0; i < bitCount; ++i)
 	{
-		s.Append(
-			SBitSet::Get(Flags, i)? TX("1") : TX("0")
-		);
-		if (i < last_i)
+		if (i > 0)
 		{
-			s.Append(TX(" "));
+			s.Append(TX(' '));
 		}
+		s.Append(
+			SBitSet::Get(Flags, i)? TX('1') : TX('0')
+		);
 	}
-	s.Append(TX(")"));
+	s.Append(TX(')'));
 	return s;
 }

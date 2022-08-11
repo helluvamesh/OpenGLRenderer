@@ -17,8 +17,8 @@ struct DModelViewerConfig : public DStruct
 {
 	REFLECT_H(DModelViewerConfig, DStruct)
 public:
-	int32 MinOpenGLVersionMinor = 3;
-	int32 MinOpenGLVersionMajor = 3;
+	int32 MinOpenGLVersionMajor = 4;
+	int32 MinOpenGLVersionMinor = 0;
 	int32 WindowWidth = 800;
 	int32 WindowHeight = 600;
 	int32 UIWidth = 300;
