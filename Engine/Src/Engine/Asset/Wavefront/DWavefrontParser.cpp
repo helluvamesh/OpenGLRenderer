@@ -1,5 +1,6 @@
 #include "Engine/pch.h"
 #include "DWavefrontParser.h"
+#include "DWavefrontEncoder.h"
 
 
 bool DWavefrontParser::DImportOptions::Equals(const DImportOptions& Other) const
