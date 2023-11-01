@@ -154,7 +154,6 @@ bool SGltfImporter::ReadSceneFromGLB(
 	DJsonParser jsonParser;
 	DGltf_Gltf gltf;
 	if (jsonParser.ParseStruct(gltf, DGltf_Gltf::GetDeclaredClass(), jsonString) == false) return false;
-	STextFile::WriteToUTF8File(TX("D:/delete/gltf.txt"), jsonString);
 
 	if (gltf.scenes.IsEmpty() || gltf.scene == -1) return false;
 
